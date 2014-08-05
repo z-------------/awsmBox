@@ -32,7 +32,7 @@ awsmBox.create = function(opts) {
         
         if (options.buttons[i].closeOnClick) {
             button.addEventListener("click", function(){
-                document.body.removeChild(this.parentElement.parentElement);
+                awsmBox.close(this.parentElement.parentElement);
             });
         }
         
