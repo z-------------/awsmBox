@@ -8,7 +8,8 @@ awsmBox.create = function(opts) {
         body: "Sample text, lens flare",
         buttons: [{
             text: "OK",
-            closeOnClick: true
+            closeOnClick: true,
+            style: "color: white; background-color: #2be02b;"
         }]
     };
     
@@ -37,6 +38,7 @@ awsmBox.create = function(opts) {
         }
         
         button.addEventListener("click", options.buttons[i].onClick);
+        button.setAttribute("style", options.buttons[i].style);
         
         boxDiv.querySelector(".buttons").appendChild(button);
     }
@@ -44,6 +46,11 @@ awsmBox.create = function(opts) {
     boxDiv.querySelector(".content").innerHTML = options.body;
     
     document.body.appendChild(boxDiv);
+    
+    boxDiv.style.marginTop = - boxDiv.offsetHeight / 2 + "px";
+    boxDiv.style.marginLeft = - boxDiv.offsetWidth / 2 + "px";
+    
+    return boxDiv;
 };
 
 awsmBox.close = function(boxDiv) {
