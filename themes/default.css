@@ -1,0 +1,66 @@
+@keyframes awsmbox-open {
+    from { opacity: 0; transform: scale(0) }
+}
+
+@-webkit-keyframes awsmbox-open {
+    from { opacity: 0; -webkit-transform: scale(0) }
+}
+
+.awsmBox * {
+    font-family: inherit;
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+.awsmBox {
+    box-sizing: border-box;
+    overflow: hidden;
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    
+    width: 500px;
+    
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .6);
+    
+    font-size: 17px;
+    
+    animation: awsmbox-open .3s;
+    -webkit-animation: awsmbox-open .3s;
+}
+
+.awsmBox > * {
+    padding: 12px 20px;
+}
+
+.awsmBox > h2 {
+    font-size: 1.5em;
+    font-weight: 300;
+    background-color: #eee;
+}
+
+.awsmBox > .content {
+    color: #333;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.awsmBox > .buttons {
+    text-align: right;
+}
+
+.awsmBox > .buttons > button {
+    padding: 7px 10px;
+    border-radius: 4px;
+    border: none;
+    background: #eee;
+    font-size: inherit;
+    cursor: pointer;
+    font-weight: 300;
+    margin-left: 10px;
+}
