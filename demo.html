@@ -2,8 +2,31 @@
 <html>
     <head>
         <title>awsmBox</title>
+        <link rel="stylesheet" href="themes/default.css">
+        <style>
+            body {
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            }
+        </style>
     </head>
     <body>
         <script src="awsmBox.js"></script>
+        <script>
+            var options = {
+                body: "<em>Ooh</em> look! <strong>HTML!</strong>",
+                buttons: [{
+                    text: "K den",
+                    closeOnClick: true
+                }, {
+                    text: "Moar!",
+                    onClick: function() {
+                        awsmBox.create(options)
+                    },
+                    style: "color: white; background-color: #2be02b;"
+                }]
+            }
+            
+            awsmBox.create(options);
+        </script>
     </body>
 </html>
