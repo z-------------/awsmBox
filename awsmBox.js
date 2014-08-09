@@ -10,7 +10,12 @@ awsmBox.create = function(opts) {
             text: "OK",
             closeOnClick: true,
             style: "color: white; background-color: #2be02b;"
-        }]
+        }],
+        transition: {
+            enable: true,
+            easing: "ease",
+            duration: 300
+        }
     };
     
     if (opts) {
@@ -44,6 +49,23 @@ awsmBox.create = function(opts) {
     }
     
     boxDiv.querySelector(".content").innerHTML = options.body;
+    
+    if (options.transition.enable) {
+        if (!document.querySelector("#awsmbox-style")) {
+            var animStyle = document.createElement("style");
+            animStyle.innerHTML = "@keyframes awsmbox-anim { from { transform: scale(0); opacity: 0 } } @-webkit-keyframes awsmbox-anim { from { -webkit-transform: scale(0); opacity: 0 } }";
+            animStyle.setAttribute("id", "awsmbox-style");
+            document.head.appendChild(animStyle);
+        }
+        
+        var animationString = "awsmbox-anim " + options.transition.duration +  "ms " + options.transition.easing;
+        
+        if (boxDiv.style.animation === undefined) {
+            boxDiv.style.webkitAnimation = animationString;
+        } else {
+            boxDiv.style.animation = animationString;
+        }
+    }
     
     document.body.appendChild(boxDiv);
     
